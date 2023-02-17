@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useEffect, useState } from "react";
+import gsap from "gsap";
+import setupWebgi from "./WebGi/webgi";
+import useEffectSkipInitialRender from "./components/UseEffectSkipInitialRender";
+import Loader from "./components/Loader";
+import Header from "./components/Header";
+import FirstSection from "./components/FirstSection";
+import SecondSection from "./components/SecondSection";
+import ThirdSection from "./components/ThirdSection";
+import Customization from "./components/Customization";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import "./styles.css";
 
 function App() {
+  const [rendered, setRendered] = useState(false);
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.refresh();
+
+  useEffectSkipInitialRender(() => {
+    setupWebgi();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Loader />
+      <Header />
+
+      <div className="container-hide">
+        <FirstSection />
+        <SecondSection />
+        <ThirdSection />
+      </div>
+
+      <Customization />
+
+      <div id="webgi-canvas-container">
+        <canvas id="webgi-canvas"></canvas>
+      </div>
+    </>
   );
 }
 
