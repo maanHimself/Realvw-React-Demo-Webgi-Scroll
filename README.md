@@ -4,8 +4,6 @@ An example for a react project with webgi engine using ScrollableCameraViewsPlug
 
 About webgi: [https://webgi.xyz/](https://webgi.xyz/)
 
-check the docs : https://webgi.xyz/docs/manual/
-
 live website : https://realvwr-scroll-webgi.vercel.app/
 
 ## Structure
@@ -45,7 +43,6 @@ To use the different version:
 
 - Update the version number in `package.json` file for both `webgi` and `@types/webgi`.
 - Run `npm install` to update the dependencies.
-- Delete `.cache` folder created by parcel bundler: `rm -rf .cache`
 - Run `npm start` or `npm run build` to run or build the project.
 
 ## Documentation
