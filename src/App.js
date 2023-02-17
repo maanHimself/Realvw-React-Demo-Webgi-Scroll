@@ -1,5 +1,4 @@
 import logo from "./logo.svg";
-import "./App.css";
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 import setupWebgi from "./WebGi/webgi";

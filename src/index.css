@@ -122,7 +122,6 @@ body {
   height: 1px;
   background: #52322b;
   transform: scaleX(0);
-  animation: progresss 1s;
   transform-origin: left;
   z-index: 10;
   margin: 0 5%;
