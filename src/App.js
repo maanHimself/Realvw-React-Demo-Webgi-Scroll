@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import setupWebgi from "./WebGi/webgi";
+import setupWebgi from "./webGi/Webgi";
 import useEffectSkipInitialRender from "./components/UseEffectSkipInitialRender";
 import Loader from "./components/Loader";
 import Header from "./components/Header";
@@ -13,13 +13,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import "./styles.css";
 
 function App() {
-  const [rendered, setRendered] = useState(false);
+  let canvas = useRef();
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.refresh();
 
-  useEffectSkipInitialRender(() => {
-    setupWebgi();
-  }, []);
+  useEffect(() => {
+    setupWebgi(canvas);
+  });
 
   return (
     <>
@@ -35,7 +35,7 @@ function App() {
       <Customization />
 
       <div id="webgi-canvas-container">
-        <canvas id="webgi-canvas"></canvas>
+        <canvas ref={canvas} id="webgi-canvas"></canvas>
       </div>
     </>
   );

@@ -3,29 +3,26 @@ import {
   AssetManagerPlugin,
   timeout,
   TonemapPlugin,
-  CameraViewPlugin,
   addBasePlugins,
   ScrollableCameraViewPlugin,
 } from "webgi";
 import CustomMaterialConfiguratorPlugin from "./CustomMaterialConfiguratorPlugin";
-import handleCustomization from "./handleCustomization";
+import handleCustomization from "./HandleCustomization";
 
-export default async function setupViewer() {
+export default async function setupViewer(canvas) {
   // Initialize the viewer
   const viewer = new ViewerApp({
-    canvas: document.getElementById("webgi-canvas"),
+    canvas: canvas.current,
     useRgbm: true,
   });
 
   // Add some plugins
   const manager = await viewer.addPlugin(AssetManagerPlugin);
-  const scroller = await viewer.addPlugin(ScrollableCameraViewPlugin);
+  await viewer.addPlugin(ScrollableCameraViewPlugin);
   await viewer.addPlugin(CustomMaterialConfiguratorPlugin);
 
   // Add all the plugins at once
   await addBasePlugins(viewer);
-
-  const camViews = viewer.getPlugin(CameraViewPlugin);
 
   // This must be called after adding any plugin that changes the render pipeline.
   viewer.renderer.refreshPipeline();
