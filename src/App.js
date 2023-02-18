@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import setupWebgi from "./webGi/Webgi";
+import setupWebgi from "./webgi/webgi";
 import useEffectSkipInitialRender from "./components/UseEffectSkipInitialRender";
 import Loader from "./components/Loader";
 import Header from "./components/Header";
