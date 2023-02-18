@@ -4,7 +4,7 @@ An example for a react project with webgi engine using ScrollableCameraViewsPlug
 
 About webgi: [https://webgi.xyz/](https://webgi.xyz/)
 
-live website : https://realvwr-scroll-webgi.vercel.app/
+live website : https://realvw-react-demo-webgi-scroll.vercel.app/
 
 ## Structure
 
